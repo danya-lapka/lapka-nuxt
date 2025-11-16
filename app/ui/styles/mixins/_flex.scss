@@ -1,0 +1,24 @@
+@use 'sass:list';
+
+$flexes: (
+  "r": (row, nowrap),
+  "rw": (row, wrap),
+  "rr": (row-reverse, nowrap),
+  "rrw": (row-reverse, wrap),
+  "c": (column, nowrap),
+  "cw": (column, wrap),
+  "cr": (column-reverse, nowrap),
+  "crw": (column-reverse, wrap)
+);
+
+@each $name, $flow in $flexes {
+  .f-#{$name} {
+    display: flex;
+    flex-direction: list.nth($flow, 1);
+    flex-wrap: list.nth($flow, 2);
+  }
+}
+.fi {
+  display: inline-flex;
+}
+

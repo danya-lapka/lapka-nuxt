@@ -1,0 +1,19 @@
+@use '../variables.scss' as *;
+
+$sides: (top, bottom, left, right);
+$max: 256;
+
+%absolute { position: absolute; }
+
+@mixin absolute($side, $value, $percent: false) {
+  @extend %absolute;
+  #{$side}: if($percent, $value + "%", $value * $n);
+}
+
+@for $i from 0 through $max {
+  @each $side in $sides {
+    .a-#{$side}-#{$i}  { @include absolute($side, $i); }
+    .a-#{$side}-#{$i}p { @include absolute($side, $i, true); }
+  }
+}
+

@@ -1,0 +1,31 @@
+@use '../variables.scss' as *;
+@use 'sass:map';
+
+$sides: (top, bottom, left, right);
+$max: 128;
+
+@mixin radius($side, $value) {
+  @if $side == all {
+    border-radius: $value * $n;
+  } @else {
+    $map: (
+      top: (border-top-left-radius, border-top-right-radius),
+      bottom: (border-bottom-left-radius, border-bottom-right-radius),
+      left: (border-top-left-radius, border-bottom-left-radius),
+      right: (border-top-right-radius, border-bottom-right-radius)
+    );
+
+    @each $prop in map.get($map, $side) {
+      #{$prop}: $value * $n;
+    }
+  }
+}
+
+@for $i from 0 through $max {
+  $j: $i *2;
+  .ra-#{$j} { @include radius(all, $j); }
+  @each $side in $sides {
+    .r-#{$side}-#{$j} { @include radius($side, $j); }
+  }
+}
+

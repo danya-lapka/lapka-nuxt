@@ -1,0 +1,61 @@
+@use '../variables.scss' as *;
+
+@mixin space($property, $side, $value) {
+  @if $side == all {
+    #{$property}: $value * $n;
+  } @else if $side == x {
+    #{$property}-left: $value * $n;
+    #{$property}-right: $value * $n;
+  } @else if $side == y {
+    #{$property}-top: $value * $n;
+    #{$property}-bottom: $value * $n;
+  } @else {
+    #{$property}-#{$side}: $value * $n;
+  }
+}
+
+@mixin space-percent($property, $side, $value) {
+  $val: #{$value} + "%";
+  @if $side == all {
+    #{$property}: $val;
+  } @else if $side == x {
+    #{$property}-left: $val;
+    #{$property}-right: $val;
+  } @else if $side == y {
+    #{$property}-top: $val;
+    #{$property}-bottom: $val;
+  } @else {
+    #{$property}-#{$side}: $val;
+  }
+}
+
+$sides: (top, bottom, left, right);
+$axes: (x, y);
+$max: 128;
+
+@for $i from 0 through $max {
+  $j: $i *2;
+  @each $side in $sides {
+    .p-#{$side}-#{$i}  { @include space(padding, $side, $i); }
+    .m-#{$side}-#{$j}  { @include space(margin,  $side, $j); }
+
+    .m-#{$side}-#{$j}m { @include space(margin,  $side, -$j); }
+    .m-#{$side}-#{$j}p { @include space-percent(margin,  $side, $j); }
+  }
+
+  @each $axis in $axes {
+    .p-#{$axis}-#{$j}  { @include space(padding, $axis, $j); }
+    .m-#{$axis}-#{$j}  { @include space(margin,  $axis, $j); }
+
+    .m-#{$axis}-#{$j}m { @include space(margin,  $axis, -$j); }
+    .m-#{$axis}-#{$j}p { @include space-percent(margin,  $axis, $j); }
+  }
+
+  .pa-#{$j}  { @include space(padding, all, $j); }
+  .ma-#{$j}  { @include space(margin,  all, $j); }
+  .g-#{$j}   { @include space(gap,     all, $j); }
+
+  .ma-#{$j}m { @include space(margin,  all, -$j); }
+  .ma-#{$j}p { @include space-percent(margin,  all, $j); }
+}
+

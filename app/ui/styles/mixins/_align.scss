@@ -1,0 +1,65 @@
+$alignments: (
+  "a": ( // align-items
+    "start": flex-start,
+    "end": flex-end,
+    "center": center,
+    "stretch": stretch,
+    "baseline": baseline
+  ),
+  "j": ( // justify-content
+    "start": flex-start,
+    "end": flex-end,
+    "center": center,
+    "between": space-between,
+    "around": space-around,
+    "evenly": space-evenly
+  ),
+  "ac": ( // align-content
+    "start": flex-start,
+    "end": flex-end,
+    "center": center,
+    "stretch": stretch,
+    "between": space-between,
+    "around": space-around
+  ),
+  "ji": ( // justify-items
+    "start": start,
+    "end": end,
+    "center": center,
+    "stretch": stretch
+  ),
+  "as": ( // align-self
+    "start": flex-start,
+    "end": flex-end,
+    "center": center,
+    "stretch": stretch,
+    "baseline": baseline
+  ),
+  "js": ( // justify-self
+    "start": start,
+    "end": end,
+    "center": center,
+    "stretch": stretch
+  )
+);
+
+@each $prefix, $map in $alignments {
+  @each $name, $value in $map {
+    .#{$prefix}-#{$name} {
+      @if $prefix == 'a' {
+        align-items: $value;
+      } @else if $prefix == 'j' {
+        justify-content: $value;
+      } @else if $prefix == 'ac' {
+        align-content: $value;
+      } @else if $prefix == 'ji' {
+        justify-items: $value;
+      } @else if $prefix == 'as' {
+        align-self: $value;
+      } @else if $prefix == 'js' {
+        justify-self: $value;
+      }
+    }
+  }
+}
+

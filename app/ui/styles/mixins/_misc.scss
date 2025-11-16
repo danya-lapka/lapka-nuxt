@@ -1,0 +1,27 @@
+@use '../variables.scss' as *;
+
+$cursors: (
+  pointer, help, text, crosshair, default, auto, none, context-menu, progress,
+  wait, cell, crosshair, vertical-text, alias, copy, move, no-drop, not-allowed,
+  all-scroll, col-resize, row-resize, n-resize, e-resize, s-resize, w-resize,
+  ns-resize, ew-resize, ne-resize, nw-resize, se-resize, sw-resize,
+  nesw-resize, nwse-resize
+);
+
+@each $name in $cursors {
+  .c-#{$name} { cursor: $name; }
+}
+
+$positions: (absolute, relative, fixed);
+@each $name in $positions {
+  .pos-#{$name} { position: $name; }
+}
+
+%outline-base {
+  outline-offset: -2 * $n;
+  outline-width: 2 * $n;
+  outline-style: solid;
+}
+
+.outline-base { @extend %outline-base; }
+

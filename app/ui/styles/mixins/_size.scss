@@ -1,0 +1,33 @@
+@use '../variables.scss' as *;
+$max: 256;
+
+$contents: (
+  'min':min-content,
+  'max':max-content,
+  'fit':fit-content
+);
+
+@each $name, $value in $contents {
+  .w-#{$name} {
+    width: $value;
+  }
+  .h-#{$name} {
+    height: $value;
+  }
+}
+
+@for $i from 0 through $max {
+  .wp-#{$i} {
+    width: #{$i} + "%";
+  }
+  .hp-#{$i} {
+    height: #{$i} + "%";
+  }
+  .wa-#{$i} {
+    width: $i * $n !important;
+  }
+  .ha-#{$i} {
+    height: $i * $n !important;
+  }
+}
+
