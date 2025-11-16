@@ -2,7 +2,6 @@
   <svg
     ref="svgRef"
     xmlns="http://www.w3.org/2000/svg"
-    :class="iconClass"
     :viewBox="viewBox"
     preserveAspectRatio="xMidYMid meet"
   >
@@ -15,17 +14,12 @@ import { computed, ref, onMounted, watch, nextTick } from 'vue'
 
 interface Props {
   name: string
-  class?: string
 }
 
-const props = withDefaults(defineProps<Props>(), {
-  class: ''
-})
+const props = defineProps<Props>()
 
 const svgRef = ref<SVGSVGElement | null>(null)
 const viewBox = ref<string>('0 0 24 24')
-
-const iconClass = computed(() => props.class)
 
 const updateViewBox = () => {
   if (typeof window !== 'undefined' && svgRef.value) {
@@ -75,9 +69,11 @@ svg {
   height: 1em;
   width: auto;
   fill: currentColor;
-  path {
-    fill: currentColor;
-  }
+  color: currentColor;
+}
+
+svg :deep(use) {
+  color: inherit;
 }
 </style>
 

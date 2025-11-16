@@ -13,9 +13,9 @@
 </template>
 
 <script setup lang="ts">
-import CardSkill from './CardSkill.vue';
 import { SvgIcon, WindowSize } from '@/ui';
 import { computed } from 'vue';
+import { CardSkill } from '~/components';
 
 const computedClasses = computed(() => ({
   ['gm-3-24']: ['Lg','Bg'].includes(WindowSize.value),

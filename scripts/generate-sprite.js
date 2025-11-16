@@ -26,7 +26,11 @@ svgFiles.forEach(file => {
   
   // Извлекаем содержимое SVG (все что внутри <svg> тега)
   const contentMatch = svgContent.match(/<svg[^>]*>(.*?)<\/svg>/is);
-  const innerContent = contentMatch ? contentMatch[1] : '';
+  let innerContent = contentMatch ? contentMatch[1] : '';
+  
+  // Удаляем жестко заданные fill атрибуты, чтобы можно было управлять цветом через CSS
+  // Заменяем fill="black", fill="#000000" и другие на fill="currentColor"
+  innerContent = innerContent.replace(/fill\s*=\s*["'][^"']*["']/gi, 'fill="currentColor"');
   
   // Создаем symbol с id="icon-{name}"
   spriteContent += `  <symbol id="icon-${iconName}" viewBox="${viewBox}">\n`;
