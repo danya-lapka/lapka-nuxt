@@ -1,8 +1,9 @@
 <template>
-  <h1 class="h-1">Under construction...</h1>
+  <SectionTable />
 </template>
 
 <script setup lang="ts">
+import { SectionTable }from '~/components';
 </script>
 
 <style scoped></style>

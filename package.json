@@ -13,6 +13,7 @@
   "dependencies": {
     "@nuxt/fonts": "^0.12.1",
     "@nuxt/image": "^2.0.0",
+    "@nuxtjs/supabase": "^2.0.1",
     "@vueuse/core": "^14.0.0",
     "nuxt": "^4.2.1",
     "sass": "^1.94.0",

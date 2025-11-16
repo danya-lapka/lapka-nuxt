@@ -5,5 +5,8 @@ import CardSkill from "./cards/CardSkill.vue";
 import SectionHello from "./sections/SectionHello.vue";
 import SectionLinks from "./sections/SectionLinks.vue";
 import SectionSkills from "./sections/SectionSkills.vue";
+import SectionTable from "./sections/SectionTable.vue";
 
-export { BlockFooter, BlockHeader, CardLink, CardSkill, SectionHello, SectionLinks, SectionSkills }
+export { BlockFooter, BlockHeader, 
+  CardLink, CardSkill, 
+  SectionHello, SectionLinks, SectionSkills, SectionTable }
