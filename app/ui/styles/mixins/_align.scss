@@ -43,6 +43,10 @@ $alignments: (
   )
 );
 
+$text-alignments: (
+  center, end, justify, left, right, start
+);
+
 @each $prefix, $map in $alignments {
   @each $name, $value in $map {
     .#{$prefix}-#{$name} {
@@ -62,4 +66,8 @@ $alignments: (
     }
   }
 }
-
+@each $name in $text-alignments {
+  .t-#{$name} {
+    text-align: $name;
+  }
+}

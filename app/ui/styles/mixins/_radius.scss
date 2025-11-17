@@ -1,12 +1,16 @@
 @use '../variables.scss' as *;
 @use 'sass:map';
+@use 'sass:list';
 
 $sides: (top, bottom, left, right);
-$max: 128;
+$corners: (top-left, top-right, bottom-left, bottom-right);
+$max: 256;
 
 @mixin radius($side, $value) {
   @if $side == all {
     border-radius: $value * $n;
+  } @else if list.index($corners, $side) {
+    border-#{$side}-radius: $value * $n;
   } @else {
     $map: (
       top: (border-top-left-radius, border-top-right-radius),
@@ -22,10 +26,16 @@ $max: 128;
 }
 
 @for $i from 0 through $max {
-  $j: $i *2;
-  .ra-#{$j} { @include radius(all, $j); }
+  // Все стороны
+  .ra-#{$i} { @include radius(all, $i); }
+  
+  // Отдельные стороны (2 угла)
   @each $side in $sides {
-    .r-#{$side}-#{$j} { @include radius($side, $j); }
+    .r-#{$side}-#{$i} { @include radius($side, $i); }
+  }
+  
+  // Отдельные углы
+  @each $corner in $corners {
+    .r-#{$corner}-#{$i} { @include radius($corner, $i); }
   }
 }
-

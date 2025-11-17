@@ -31,31 +31,30 @@
 
 $sides: (top, bottom, left, right);
 $axes: (x, y);
-$max: 128;
+$max: 256;
 
 @for $i from 0 through $max {
-  $j: $i *2;
   @each $side in $sides {
     .p-#{$side}-#{$i}  { @include space(padding, $side, $i); }
-    .m-#{$side}-#{$j}  { @include space(margin,  $side, $j); }
+    .m-#{$side}-#{$i}  { @include space(margin,  $side, $i); }
 
-    .m-#{$side}-#{$j}m { @include space(margin,  $side, -$j); }
-    .m-#{$side}-#{$j}p { @include space-percent(margin,  $side, $j); }
+    .m-#{$side}-#{$i}m { @include space(margin,  $side, -$i); }
+    .m-#{$side}-#{$i}p { @include space-percent(margin,  $side, $i); }
   }
 
   @each $axis in $axes {
-    .p-#{$axis}-#{$j}  { @include space(padding, $axis, $j); }
-    .m-#{$axis}-#{$j}  { @include space(margin,  $axis, $j); }
+    .p-#{$axis}-#{$i}  { @include space(padding, $axis, $i); }
+    .m-#{$axis}-#{$i}  { @include space(margin,  $axis, $i); }
 
-    .m-#{$axis}-#{$j}m { @include space(margin,  $axis, -$j); }
-    .m-#{$axis}-#{$j}p { @include space-percent(margin,  $axis, $j); }
+    .m-#{$axis}-#{$i}m { @include space(margin,  $axis, -$i); }
+    .m-#{$axis}-#{$i}p { @include space-percent(margin,  $axis, $i); }
   }
 
-  .pa-#{$j}  { @include space(padding, all, $j); }
-  .ma-#{$j}  { @include space(margin,  all, $j); }
-  .g-#{$j}   { @include space(gap,     all, $j); }
+  .pa-#{$i}  { @include space(padding, all, $i); }
+  .ma-#{$i}  { @include space(margin,  all, $i); }
+  .g-#{$i}   { @include space(gap,     all, $i); }
 
-  .ma-#{$j}m { @include space(margin,  all, -$j); }
-  .ma-#{$j}p { @include space-percent(margin,  all, $j); }
+  .ma-#{$i}m { @include space(margin,  all, -$i); }
+  .ma-#{$i}p { @include space-percent(margin,  all, $i); }
 }
 

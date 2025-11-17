@@ -43,7 +43,7 @@ export default defineNuxtConfig({
     }
   },
 
-  modules: ['@nuxt/fonts', '@nuxt/image', '@nuxtjs/supabase'],
+  modules: ['@nuxt/fonts', '@nuxt/image'],
   
   fonts: {
     processCSSVariables: true,
@@ -85,5 +85,17 @@ export default defineNuxtConfig({
       'bg': 1440,
       'lg': 1920,
     }
-  }
+  },
+  
+  runtimeConfig: {
+    // приватные (только сервер)
+    supabaseUrl: process.env.SUPABASE_URL,
+    supabaseKey: process.env.SUPABASE_KEY,
+
+    // публичные (клиент + сервер)
+    public: {
+      supabaseUrl: process.env.NUXT_PUBLIC_SUPABASE_URL,
+      supabaseAnonKey: process.env.NUXT_PUBLIC_SUPABASE_ANON_KEY,
+    },
+  },
 });
