@@ -1,5 +1,6 @@
 @use './variables.scss' as *;
 
+// Import mixins
 @use './mixins/spacing';
 @use './mixins/absolute';
 @use './mixins/radius';
@@ -11,7 +12,7 @@
 @use './mixins/grid';
 @use './mixins/align';
 
-
+// Global reset
 * {
   box-sizing: border-box;
   margin: 0;
@@ -26,11 +27,12 @@
   list-style: none;
 }
 
+:root {
+    --background: #{$black};
+    --color: #{$white};
+}
+
 body {
-  @extend .bg-black, .color-white;
+    background-color: var(--background);
+    color: var(--color);
 }
-
-header, footer {
-  width: 100%;
-}
-

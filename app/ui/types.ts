@@ -1,0 +1,1 @@
+export type Color = "white"|"gray-1"|"gray-2"|"gray-2-alt"|"gray-3"|"black"|"white-accent"|"black-accent"|"accent"|"accent-alt"|"accent-1"|"accent-2"|"accent-2-alt"|"accent-3"|"success"|"success-alt"|"warn"|"warn-alt"|"info"|"info-alt"|"error"|"error-alt"

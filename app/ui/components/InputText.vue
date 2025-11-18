@@ -66,6 +66,7 @@ const handleInput = (event: Event): void => {
 @use 'sass:list';
 @use '../styles/all.scss' as *;
 @use '../styles/_variables.scss' as *;
+@use './colors' as colors;
 
 $component: (
   "white": ("white", "gray-1", "black", "gray-3"),
@@ -97,7 +98,7 @@ $component: (
     }
   }
 }
-.component {
+%component {
   @extend %component-base;
   &:focus-within, &:focus-within:has(input:not(:placeholder-shown)) {
     @extend
@@ -105,7 +106,7 @@ $component: (
     .hover\:bg-accent;
   }
 }
-.component-outline {
+%component-outline {
   @extend %component-base;
   &:focus-within, &:focus-within:has(input:not(:placeholder-shown)) {
     @extend
@@ -116,11 +117,8 @@ $component: (
 }
 @each $name, $colors in $component {
   .#{$name} {
-    @extend .component,
-      .bg-#{list.nth($colors, 1)},
-      .hover\:bg-#{list.nth($colors, 2)},
-      .color-#{list.nth($colors, 3)},
-      .hover\:color-#{list.nth($colors, 4)};
+    @extend %component;
+    @include colors.background($colors);
 
     &:has(input:not(:placeholder-shown)) {
       span {
@@ -138,11 +136,8 @@ $component: (
     }
   }
   .#{$name}-outline {
-    @extend .component-outline, .outline-base,
-      .outline-#{list.nth($colors, 1)},
-      .hover\:outline-#{list.nth($colors, 2)},
-      .color-#{list.nth($colors, 1)},
-      .hover\:color-#{list.nth($colors, 2)};
+    @extend %component-outline;
+    @include colors.background($colors);
 
     &:has(input:not(:placeholder-shown)) {
       span {
@@ -162,4 +157,3 @@ $component: (
 }
 
 </style>
-

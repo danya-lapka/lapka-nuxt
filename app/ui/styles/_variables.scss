@@ -1,18 +1,19 @@
 // Colors
-// grays
+
+// Grays
 $white: #F2F2F2;
 $gray-1: #BFBFBF;
 $gray-2: #797979;
 $gray-3: #333333;
 $black: #000000;
 
-// accent
+// Accent colors
 $accent: #FF40BF;
 $accent-1: #FFBFE9;
 $accent-2: #FF99DD;
 $accent-3: #800054;
 
-//other
+// Status colors
 $success: #40FF40;
 $success-alt: #62B262;
 
@@ -29,6 +30,5 @@ $info-alt: #627DB2;
 $font-heading: "Unbounded", sans-serif;
 $font-body: "Monocraft", monospace;
 
-// Rem
+// Base unit for rem calculations (1px = 0.0625rem)
 $n: 0.0625rem;
-

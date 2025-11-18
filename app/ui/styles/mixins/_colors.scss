@@ -1,5 +1,6 @@
 @use '../variables.scss' as *;
 
+// Map of color names and their corresponding values
 $colors: (
   "white": $white,
   "gray-1": $gray-1,
@@ -20,12 +21,14 @@ $colors: (
   "info-alt": $info-alt
 );
 
+// Generate color classes
 @each $name, $color in $colors {
   .bg-#{$name} { background-color: $color; }
   .color-#{$name} { color: $color; }
   .border-#{$name} { border-color: $color; }
   .outline-#{$name} { outline-color: $color; }
 
+  // Generate border classes for specific sides (top, bottom, left, right)
   @each $pos in (t, b, l, r) {
     .border-#{$name}#{$pos} {
       border-color:
@@ -36,11 +39,12 @@ $colors: (
     }
   }
 
+  // Generate hover classes
   .hover\:bg-#{$name}:hover { background-color: $color; }
   .hover\:color-#{$name}:hover { color: $color; }
   .hover\:border-#{$name}:hover { border-color: $color; }
   .hover\:outline-#{$name}:hover { outline: $color; }
 }
 
+// Transparent background class
 .transparent { background-color: transparent; }
-

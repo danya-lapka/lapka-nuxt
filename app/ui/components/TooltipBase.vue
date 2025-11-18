@@ -12,9 +12,10 @@
 
 </template>
 <script setup lang="ts">
+import type Color from '../types';
 
 interface Props {
-  color?: "white"|"black"|"accent"|"accent-alt"|"success"|"warn"|"error"|"info";
+  color?: Color;
   side?: "top"|"bottom"|"left"|"right"
 }
 
@@ -30,17 +31,7 @@ const props = withDefaults(defineProps<Props>(),
 @use 'sass:list';
 @use '../styles/all.scss' as *;
 @use '../styles/_variables.scss' as *;
-
-$component: (
-  "white": ("white", "black"),
-  "black": ("black", "white"),
-  "accent": ("accent", "black"),
-  "accent-alt": ("accent", "white"),
-  "success": ("success", "black"),
-  "warn": ("warn", "black"),
-  "error": ("error", "black"),
-  "info": ("info", "black"),
-);
+@use './colors' as colors;
 
 $sides: top, bottom, left, right;
 
@@ -63,9 +54,9 @@ $sides: top, bottom, left, right;
   }
 }
 
-@each $name, $colors in $component {
+@each $name, $colors in colors.$component {
   $bg-color: list.nth($colors, 1);
-  $text-color: list.nth($colors, 2);
+  $text-color: list.nth($colors, 3);
 
   @each $side in $sides {
     .#{$name}-#{$side} {
@@ -109,6 +100,4 @@ $sides: top, bottom, left, right;
     }
   }
 }
-
 </style>
-

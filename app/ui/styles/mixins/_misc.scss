@@ -1,5 +1,6 @@
 @use '../variables.scss' as *;
 
+// List of cursor styles
 $cursors: (
   pointer, help, text, crosshair, default, auto, none, context-menu, progress,
   wait, cell, crosshair, vertical-text, alias, copy, move, no-drop, not-allowed,
@@ -8,20 +9,25 @@ $cursors: (
   nesw-resize, nwse-resize
 );
 
+// Generate cursor classes
 @each $name in $cursors {
   .c-#{$name} { cursor: $name; }
 }
 
+// List of position values
 $positions: (absolute, relative, fixed);
+
+// Generate position classes
 @each $name in $positions {
   .pos-#{$name} { position: $name; }
 }
 
+// Base outline style
 %outline-base {
   outline-offset: -2 * $n;
   outline-width: 2 * $n;
   outline-style: solid;
 }
 
+// Apply base outline style
 .outline-base { @extend %outline-base; }
-

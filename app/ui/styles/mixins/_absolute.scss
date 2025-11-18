@@ -1,19 +1,24 @@
 @use '../variables.scss' as *;
 
+// Define sides for absolute positioning
 $sides: (top, bottom, left, right);
+
+// Maximum value for absolute positioning
 $max: 256;
 
+// Base class for absolute positioning
 %absolute { position: absolute; }
 
+// Mixin for absolute positioning
 @mixin absolute($side, $value, $percent: false) {
   @extend %absolute;
   #{$side}: if($percent, $value + "%", $value * $n);
 }
 
+// Generate absolute positioning classes
 @for $i from 0 through $max {
   @each $side in $sides {
     .a-#{$side}-#{$i}  { @include absolute($side, $i); }
     .a-#{$side}-#{$i}p { @include absolute($side, $i, true); }
   }
 }
-

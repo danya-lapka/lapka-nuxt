@@ -1,37 +1,43 @@
 @use 'sass:list';
 @use '../variables.scss' as *;
 
+// Typography mixin
 @mixin typography($family, $size, $weight) {
   font: {
     family: #{$family};
     size: $size * $n;
     weight: $weight;
     style: normal;
-  }
+  };
+
+  // Style for paragraphs
   p {
     line-height: 1.8cap;
   }
-  p + p{
+
+  // Style for consecutive paragraphs
+  p + p {
     margin-top: 1cap;
   }
 }
 
+// Map of typography styles
 $typography: (
-  "h-1": ($font-heading, 64, 800),
-  "h-2": ($font-heading, 48, 700),
-  "h-3": ($font-heading, 40, 700),
-  "h-4": ($font-heading, 36, 600),
-  "b-1": ($font-body, 36, 700),
-  "b-2": ($font-body, 32, 600),
-  "b-3": ($font-body, 24, 600),
-  "b-4": ($font-body, 20, 500),
-  "b-5": ($font-body, 16, 500),
-  "b-6": ($font-body, 12, 500)
+  "h-1": ($font-heading, 64, 800), // Heading 1
+  "h-2": ($font-heading, 48, 700), // Heading 2
+  "h-3": ($font-heading, 40, 700), // Heading 3
+  "h-4": ($font-heading, 36, 600), // Heading 4
+  "b-1": ($font-body, 36, 700), // Body 1
+  "b-2": ($font-body, 32, 600), // Body 2
+  "b-3": ($font-body, 24, 600), // Body 3
+  "b-4": ($font-body, 20, 500), // Body 4
+  "b-5": ($font-body, 16, 500), // Body 5
+  "b-6": ($font-body, 12, 500)  // Body 6
 );
 
+// Generate typography classes
 @each $name, $value in $typography {
   .#{$name} {
     @include typography(list.nth($value, 1), list.nth($value, 2), list.nth($value, 3));
   }
 }
-

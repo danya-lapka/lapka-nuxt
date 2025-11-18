@@ -7,6 +7,8 @@
         <div class="wa-120 p-y-4 bg-white t-center">Статус</div>
         <div class="wa-130 p-y-4 bg-white t-center r-top-right-16">Ссылка</div>
       </div>
+      <div v-if="loading" style="height: 500px;" class="b-4 f-r g-1 bg-gray-2 skeleton">
+      </div>
       <div class="b-4 f-r g-1 bg-gray-2" v-for="game in games">
         <div style="flex: 1 1 260px;" class="p-x-12 p-y-2" :class="getBg(game.id)" >{{ game.name }}</div>
         <div class="wa-120 p-y-2 fi a-center j-center" :class="getBg(game.id), getStatus(game.status)" >
@@ -35,6 +37,7 @@ import { LinkBase } from '~/ui';
 const supabase = useSupabaseClientBrowser();
 type Game = Database['public']['Tables']['games']['Row']
 const games: Ref<Game[]> = ref([]);
+const loading = ref(true);
 
 async function getGames(): Promise<void> {
   const { data, error } = await supabase
@@ -43,12 +46,14 @@ async function getGames(): Promise<void> {
 
   if (error) {
     console.error(error);
+    loading.value = false;
     return;
   }
 
   if (data) {
     games.value = data as Game[]
   }
+  loading.value = false;
 }
 
 onMounted(() => {
@@ -84,4 +89,19 @@ const getStatusName = (status: Database['public']['Tables']['games']['Row']['sta
 </script>
 
 <style scoped>
+.skeleton {
+  background: linear-gradient(90deg, #000 25%, #fff 50%, #000 75%);
+  background-size: 200% 100%;
+  animation: skeleton-loading 1.5s linear infinite;
+  border-radius: 4px;
+}
+
+@keyframes skeleton-loading {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
 </style>

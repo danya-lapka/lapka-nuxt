@@ -1,3 +1,4 @@
+// Map of alignment properties and their values
 $alignments: (
   "a": ( // align-items
     "start": flex-start,
@@ -43,10 +44,12 @@ $alignments: (
   )
 );
 
+// List of text alignment values
 $text-alignments: (
   center, end, justify, left, right, start
 );
 
+// Generate alignment classes
 @each $prefix, $map in $alignments {
   @each $name, $value in $map {
     .#{$prefix}-#{$name} {
@@ -66,6 +69,8 @@ $text-alignments: (
     }
   }
 }
+
+// Generate text alignment classes
 @each $name in $text-alignments {
   .t-#{$name} {
     text-align: $name;

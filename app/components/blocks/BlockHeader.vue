@@ -1,5 +1,5 @@
 <template>
-  <header class="f-r p-top-12 p-bottom-11 a-center j-between pos-fixed bg-black color-gray-3 a-top-0">
+  <header class="f-r wp-100 p-top-12 p-bottom-11 a-center j-between pos-fixed bg-black color-gray-3 a-top-0">
     <LinkRouter href="/" color="white" target="_self" class="h-2"><SvgIcon name="lapka-text" /></LinkRouter>
     <ul class="f-r g-32">
       <li v-for="p in pages" :key="p.path">

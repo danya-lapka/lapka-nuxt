@@ -1,5 +1,6 @@
 @use '../variables.scss' as *;
 
+// Mixin for generating spacing classes (padding, margin, gap)
 @mixin space($property, $side, $value) {
   @if $side == all {
     #{$property}: $value * $n;
@@ -14,6 +15,7 @@
   }
 }
 
+// Mixin for generating percentage-based spacing classes
 @mixin space-percent($property, $side, $value) {
   $val: #{$value} + "%";
   @if $side == all {
@@ -29,32 +31,37 @@
   }
 }
 
+// List of sides for spacing
 $sides: (top, bottom, left, right);
+
+// List of axes for spacing
 $axes: (x, y);
+
+// Maximum spacing value
 $max: 256;
 
+// Generate spacing classes
 @for $i from 0 through $max {
   @each $side in $sides {
-    .p-#{$side}-#{$i}  { @include space(padding, $side, $i); }
-    .m-#{$side}-#{$i}  { @include space(margin,  $side, $i); }
+    .p-#{$side}-#{$i}  { @include space(padding, $side, $i); } // padding
+    .m-#{$side}-#{$i}  { @include space(margin,  $side, $i); } // margin
 
-    .m-#{$side}-#{$i}m { @include space(margin,  $side, -$i); }
-    .m-#{$side}-#{$i}p { @include space-percent(margin,  $side, $i); }
+    .m-#{$side}-#{$i}m { @include space(margin,  $side, -$i); } // negative margin
+    .m-#{$side}-#{$i}p { @include space-percent(margin,  $side, $i); } // percentage margin
   }
 
   @each $axis in $axes {
-    .p-#{$axis}-#{$i}  { @include space(padding, $axis, $i); }
-    .m-#{$axis}-#{$i}  { @include space(margin,  $axis, $i); }
+    .p-#{$axis}-#{$i}  { @include space(padding, $axis, $i); } // padding
+    .m-#{$axis}-#{$i}  { @include space(margin,  $axis, $i); } // margin
 
-    .m-#{$axis}-#{$i}m { @include space(margin,  $axis, -$i); }
-    .m-#{$axis}-#{$i}p { @include space-percent(margin,  $axis, $i); }
+    .m-#{$axis}-#{$i}m { @include space(margin,  $axis, -$i); } // negative margin
+    .m-#{$axis}-#{$i}p { @include space-percent(margin,  $axis, $i); } // percentage margin
   }
 
-  .pa-#{$i}  { @include space(padding, all, $i); }
-  .ma-#{$i}  { @include space(margin,  all, $i); }
-  .g-#{$i}   { @include space(gap,     all, $i); }
+  .pa-#{$i}  { @include space(padding, all, $i); } // padding all
+  .ma-#{$i}  { @include space(margin,  all, $i); } // margin all
+  .g-#{$i}   { @include space(gap,     all, $i); } // gap all
 
-  .ma-#{$i}m { @include space(margin,  all, -$i); }
-  .ma-#{$i}p { @include space-percent(margin,  all, $i); }
+  .ma-#{$i}m { @include space(margin,  all, -$i); } // negative margin all
+  .ma-#{$i}p { @include space-percent(margin,  all, $i); } // percentage margin all
 }
-

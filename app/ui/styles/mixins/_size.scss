@@ -1,12 +1,16 @@
 @use '../variables.scss' as *;
+
+// Maximum size value
 $max: 256;
 
+// Map of content-based size values
 $contents: (
-  'min':min-content,
-  'max':max-content,
-  'fit':fit-content
+  'min': min-content,
+  'max': max-content,
+  'fit': fit-content
 );
 
+// Generate content-based size classes
 @each $name, $value in $contents {
   .w-#{$name} {
     width: $value;
@@ -16,18 +20,22 @@ $contents: (
   }
 }
 
+// Generate absolute size classes
 @for $i from 0 through $max {
-  .wp-#{$i} {
-    width: #{$i} + "%";
-  }
-  .hp-#{$i} {
-    height: #{$i} + "%";
-  }
-  .wa-#{$i} {
+  .wa-#{$i} { // width
     width: $i * $n !important;
   }
-  .ha-#{$i} {
+  .ha-#{$i} { // height
     height: $i * $n !important;
   }
 }
 
+// Generate percentage-based size classes
+@for $i from 0 through 100 {
+  .wp-#{$i} { // width
+    width: #{$i} + "%";
+  }
+  .hp-#{$i} { // height
+    height: #{$i} + "%";
+  }
+}

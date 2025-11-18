@@ -1,16 +1,18 @@
 @use 'sass:list';
 
+// Map of flexbox configurations
 $flexes: (
-  "r": (row, nowrap),
-  "rw": (row, wrap),
-  "rr": (row-reverse, nowrap),
-  "rrw": (row-reverse, wrap),
-  "c": (column, nowrap),
-  "cw": (column, wrap),
-  "cr": (column-reverse, nowrap),
-  "crw": (column-reverse, wrap)
+  "r": (row, nowrap), // row, nowrap
+  "rw": (row, wrap), // row, wrap
+  "rr": (row-reverse, nowrap), // row-reverse, nowrap
+  "rrw": (row-reverse, wrap), // row-reverse, wrap
+  "c": (column, nowrap), // column, nowrap
+  "cw": (column, wrap), // column, wrap
+  "cr": (column-reverse, nowrap), // column-reverse, nowrap
+  "crw": (column-reverse, wrap) // column-reverse, wrap
 );
 
+// Generate flexbox classes
 @each $name, $flow in $flexes {
   .f-#{$name} {
     display: flex;
@@ -18,7 +20,8 @@ $flexes: (
     flex-wrap: list.nth($flow, 2);
   }
 }
+
+// Inline flex class
 .fi {
   display: inline-flex;
 }
-

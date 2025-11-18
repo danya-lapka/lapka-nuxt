@@ -11,9 +11,10 @@
 
 </template>
 <script setup lang="ts">
+import type Color from '../types';
 
 interface Props {
-  color?: "white"|"white-accent"|"black"|"black-accent"|"accent"|"accent-alt";
+  color?: Color;
   href: string,
   target?: '_self' | '_blank' | '_parent' | '_top'
 }
@@ -27,28 +28,11 @@ const props = withDefaults(defineProps<Props>(),
 
 </script>
 <style scoped lang="scss">
-@use 'sass:list';
-@use '../styles/all.scss' as *;
+@use './colors' as colors;
 
-$component: (
-  "white": ("white", "gray-1"),
-  "white-accent": ("white", "accent"),
-  "black": ("black", "gray-3"),
-  "black-accent": ("black", "accent"),
-  "accent": ("accent", "accent-1"),
-  "accent-alt": ("accent", "accent-3")
-);
-@each $name, $colors in $component {
+@each $name, $colors in colors.$component {
   .#{$name} {
-    @extend
-      .color-#{list.nth($colors, 1)};
-
-    &:hover {
-      @extend
-        .color-#{list.nth($colors, 2)};
-    }
+    @include colors.color($colors);
   }
 }
-
 </style>
-

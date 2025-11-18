@@ -2,16 +2,22 @@
 @use 'sass:map';
 @use 'sass:list';
 
+// List of sides for border radius
 $sides: (top, bottom, left, right);
+
+// List of corners for border radius
 $corners: (top-left, top-right, bottom-left, bottom-right);
+
+// Maximum border radius value
 $max: 256;
 
+// Mixin for setting border radius
 @mixin radius($side, $value) {
   @if $side == all {
     border-radius: $value * $n;
   } @else if list.index($corners, $side) {
     border-#{$side}-radius: $value * $n;
-  } @else {
+  } @else { // Handling sides (top, bottom, left, right)
     $map: (
       top: (border-top-left-radius, border-top-right-radius),
       bottom: (border-bottom-left-radius, border-bottom-right-radius),
@@ -25,16 +31,17 @@ $max: 256;
   }
 }
 
+// Generate border radius classes
 @for $i from 0 through $max {
-  // Все стороны
+  // All sides
   .ra-#{$i} { @include radius(all, $i); }
-  
-  // Отдельные стороны (2 угла)
+
+  // Individual sides (2 corners)
   @each $side in $sides {
     .r-#{$side}-#{$i} { @include radius($side, $i); }
   }
-  
-  // Отдельные углы
+
+  // Individual corners
   @each $corner in $corners {
     .r-#{$corner}-#{$i} { @include radius($corner, $i); }
   }

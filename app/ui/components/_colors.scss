@@ -1,0 +1,71 @@
+@use 'sass:list';
+@use '../styles/all.scss' as *;
+
+// Common color combinations
+$text-primary-colors: "black", "gray-3";
+$text-secondary-colors: "white", "gray-1";
+
+// Function to create a color list
+@function create-color-list($bg, $bg-hover, $text-colors...) {
+  @return $bg, $bg-hover, list.nth($text-colors, 1), list.nth($text-colors, 2);
+}
+
+$component: (
+  "white": create-color-list("white", "gray-1", $text-primary-colors...),
+  "gray-1": create-color-list("gray-1", "white", $text-primary-colors...),
+  "gray-2": create-color-list("gray-2", "white", $text-primary-colors...),
+  "gray-2-alt": create-color-list("gray-2", "black", $text-secondary-colors...),
+  "gray-3": create-color-list("gray-3", "black", $text-secondary-colors...),
+  "white-accent": create-color-list("white", "accent", "black", "black"),
+  "black": create-color-list("black", "gray-3", $text-secondary-colors...),
+  "black-accent": create-color-list("black", "accent", "white", "white"),
+  "accent": create-color-list("accent", "accent-1", $text-primary-colors...),
+  "accent-1": create-color-list("accent-1", "accent", $text-primary-colors...),
+  "accent-2": create-color-list("accent-2", "accent", $text-primary-colors...),
+  "accent-2-alt": create-color-list("accent-2", "accent", $text-secondary-colors...),
+  "accent-3": create-color-list("accent-3", "accent", $text-secondary-colors...),
+  "accent-alt": create-color-list("accent", "accent-3", $text-secondary-colors...),
+  "success": create-color-list("success", "success-alt", $text-primary-colors...),
+  "warn": create-color-list("warn", "warn-alt", $text-primary-colors...),
+  "error": create-color-list("error", "error-alt", $text-primary-colors...),
+  "info": create-color-list("info", "info-alt", $text-primary-colors...),
+  "success-alt": create-color-list("success-alt", "success", $text-secondary-colors...),
+  "warn-alt": create-color-list("warn-alt", "warn", $text-secondary-colors...),
+  "error-alt": create-color-list("error-alt", "error", $text-secondary-colors...),
+  "info-alt": create-color-list("info-alt", "info", $text-secondary-colors...),
+);
+
+@mixin background($colors) {
+  $bg-color: list.nth($colors, 1);
+  $bg-hover-color: list.nth($colors, 2);
+  $text-color: list.nth($colors, 3);
+  $text-hover-color: list.nth($colors, 4);
+
+  @extend
+    .bg-#{$bg-color},
+    .hover\:bg-#{$bg-hover-color},
+    .color-#{$text-color},
+    .hover\:color-#{$text-hover-color};
+}
+
+@mixin outline($colors) {
+  $base-color: list.nth($colors, 1);
+  $hover-color: list.nth($colors, 2);
+
+  @extend
+    .transparent,
+    .outline-base,
+    .outline-#{$base-color},
+    .hover\:outline-#{$hover-color},
+    .color-#{$base-color},
+    .hover\:color-#{$hover-color};
+}
+
+@mixin color($colors) {
+  $base-color: list.nth($colors, 1);
+  $hover-color: list.nth($colors, 2);
+
+  @extend
+    .color-#{$base-color},
+    .hover\:color-#{$hover-color};
+}
