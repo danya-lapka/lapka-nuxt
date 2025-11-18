@@ -17,7 +17,7 @@
     @keydown="$emit('keydown', $event)"
     placeholder=" "
   >
-  <slot><span>Input text</span></slot>
+  <span><slot>Input text</slot></span>
 </label>
 
 </template>
