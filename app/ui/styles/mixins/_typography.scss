@@ -9,6 +9,11 @@
     weight: $weight;
     style: normal;
   };
+  @if $family == $font-body {
+    font-feature-settings: "liga" on, "calt" on;
+    font-variant-ligatures: contextual;
+    letter-spacing: -0.5 * $n;
+  }
 
   // Style for paragraphs
   p {

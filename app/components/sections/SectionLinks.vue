@@ -10,10 +10,8 @@
 </template>
 
 <script setup lang="ts">
-import { links } from '@/data/static';
+import { links } from '~/data/static';
 import { SvgIcon, WindowSize } from '~/ui';
-import { computed } from 'vue';
-import { CardLink } from '~/components';
 
 const computedClasses = computed(() => ({
   ['gc-3']: ['Lg'].includes(WindowSize.value),

@@ -10,8 +10,6 @@
 
 <script setup lang="ts">
 import { WindowSize } from '~/ui';
-import { computed } from 'vue';
-import { BlockFooter, BlockHeader } from '~/components';
 
 const padding = computed(() => ({
   ['p-x-240']: ['Lg'].includes(WindowSize.value),

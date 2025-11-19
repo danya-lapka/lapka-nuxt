@@ -17,7 +17,6 @@
 <script setup lang="ts">
 import { pages, links } from '~/data/static';
 import { LinkBase, LinkRouter, SvgIcon, WindowSize } from '~/ui';
-import { computed } from 'vue';
 
 const height = computed(() => ({
   ['ha-182']: ['Lg','Bg','Md','Sm'].includes(WindowSize.value),

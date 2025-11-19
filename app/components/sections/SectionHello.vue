@@ -15,8 +15,7 @@
 </template>
 
 <script setup lang="ts">
-import { LinkBase, WindowSize } from '@/ui';
-import { computed } from 'vue';
+import { LinkBase, WindowSize } from '~/ui';
 
 const computedClasses = computed(() => ({
   ['f-r']: ['Lg','Bg','Md'].includes(WindowSize.value),

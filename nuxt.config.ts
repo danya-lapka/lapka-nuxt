@@ -23,7 +23,7 @@ export default defineNuxtConfig({
         propsDestructure: true
       }
     },
-    assetsInclude: ['**/*.svg']
+    assetsInclude: ['**/*.svg'],
   },
 
   app: {
@@ -50,22 +50,22 @@ export default defineNuxtConfig({
     families: [
       {
         name: 'Monocraft',
-        src: './app/assets/fonts/monocraft/Monocraft-Regular.ttf',
-        weight: 400,
+        src: '~/assets/fonts/monocraft/Monocraft-Regular.otf',
+        weight: 500,
         style: 'normal',
         provider: 'local'
       },
       {
         name: 'Monocraft',
-        src: './app/assets/fonts/monocraft/Monocraft-Regular.ttf',
-        weight: 400,
+        src: '~/assets/fonts/monocraft/Monocraft-SemiBold.otf',
+        weight: 600,
         style: 'normal',
         provider: 'local'
       },
       {
         name: 'Monocraft',
-        src: './app/assets/fonts/monocraft/Monocraft-Regular.ttf',
-        weight: 400,
+        src: '~/assets/fonts/monocraft/Monocraft-Bold.otf',
+        weight: 700,
         style: 'normal',
         provider: 'local'
       },
