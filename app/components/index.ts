@@ -1,11 +1,9 @@
-import { BlockFooter, BlockHeader } from "./blocks";
+import { SectionHello, SectionLinks,SectionSkills, SectionTable } from "./sections";
 import { CardLink, CardSkill } from "./cards";
-import { SectionHello, SectionLinks, SectionSkills, SectionTable } from "./sections";
+import { BlockFooter, BlockHeader } from "./blocks";
 
 export {
   BlockFooter, BlockHeader,
-  CardLink, CardSkill,
-  SectionHello, SectionSkills,
-  SectionLinks,  
-  SectionTable
-};
+  SectionHello, SectionLinks, SectionSkills, SectionTable,
+  CardLink, CardSkill
+}

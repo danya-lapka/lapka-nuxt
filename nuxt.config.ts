@@ -1,7 +1,8 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
-  devtools: { enabled: true },
+  devtools: { enabled: false },
+  typescript: { typeCheck: false},
   css: ['~/ui/style.scss'],
 
   postcss: {
@@ -44,6 +45,9 @@ export default defineNuxtConfig({
   },
 
   modules: ['@nuxt/fonts', '@nuxt/image'],
+  components: [
+    { path: '~/app/components', extensions: ['vue', 'ts'], ignore: ['**/index.*'] }
+  ],
   
   fonts: {
     processCSSVariables: true,

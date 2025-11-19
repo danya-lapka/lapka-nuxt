@@ -1,7 +1,4 @@
-import CardLink from "./CardLink.vue";
 import CardSkill from "./CardSkill.vue";
+import CardLink from "./CardLink.vue";
 
-export {
-  CardLink, 
-  CardSkill
-};
+export { CardSkill, CardLink };

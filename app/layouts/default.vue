@@ -9,7 +9,7 @@
 </template>
 
 <script setup lang="ts">
-import { BlockFooter, BlockHeader } from '~/components';
+import { BlockHeader, BlockFooter } from '~/components';
 import { WindowSize } from '~/ui';
 
 const padding = computed(() => ({
