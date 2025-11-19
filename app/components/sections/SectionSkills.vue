@@ -14,6 +14,7 @@
 
 <script setup lang="ts">
 import { SvgIcon, WindowSize } from '~/ui';
+import { CardSkill } from '../cards';
 
 const computedClasses = computed(() => ({
   ['gm-3-24']: ['Lg','Bg'].includes(WindowSize.value),

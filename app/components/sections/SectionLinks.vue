@@ -12,6 +12,7 @@
 <script setup lang="ts">
 import { links } from '~/data/static';
 import { SvgIcon, WindowSize } from '~/ui';
+import { CardLink } from '../cards';
 
 const computedClasses = computed(() => ({
   ['gc-3']: ['Lg'].includes(WindowSize.value),
