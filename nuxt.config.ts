@@ -51,21 +51,24 @@ export default defineNuxtConfig({
     families: [
       {
         name: 'Monocraft',
-        src: '~/assets/fonts/monocraft/Monocraft-SemiBold.woff2',
+        src: '/fonts/monocraft/Monocraft-SemiBold.woff2',
         weight: 500,
         style: 'normal',
+        provider: "local",
       },
       {
         name: 'Monocraft',
-        src: '~/assets/fonts/monocraft/Monocraft-Bold.woff2',
+        src: '/fonts/monocraft/Monocraft-Bold.woff2',
         weight: 600,
         style: 'normal',
+        provider: "local",
       },
       {
         name: 'Monocraft',
-        src: '~/assets/fonts/monocraft/Monocraft-Black.woff2',
+        src: '/fonts/monocraft/Monocraft-Black.woff2',
         weight: 700,
         style: 'normal',
+        provider: "local",
       },
       { 
         name: 'Unbounded',
