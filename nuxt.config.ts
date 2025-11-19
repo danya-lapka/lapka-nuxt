@@ -45,33 +45,27 @@ export default defineNuxtConfig({
   },
 
   modules: ['@nuxt/fonts', '@nuxt/image'],
-  components: [
-    { path: '~/app/components', extensions: ['vue', 'ts'], ignore: ['**/index.*'] }
-  ],
   
   fonts: {
     processCSSVariables: true,
     families: [
       {
         name: 'Monocraft',
-        src: '~/assets/fonts/monocraft/Monocraft-Regular.otf',
+        src: '~/assets/fonts/monocraft/Monocraft-SemiBold.woff2',
         weight: 500,
         style: 'normal',
-        provider: 'local'
       },
       {
         name: 'Monocraft',
-        src: '~/assets/fonts/monocraft/Monocraft-SemiBold.otf',
+        src: '~/assets/fonts/monocraft/Monocraft-Bold.woff2',
         weight: 600,
         style: 'normal',
-        provider: 'local'
       },
       {
         name: 'Monocraft',
-        src: '~/assets/fonts/monocraft/Monocraft-Bold.otf',
+        src: '~/assets/fonts/monocraft/Monocraft-Black.woff2',
         weight: 700,
         style: 'normal',
-        provider: 'local'
       },
       { 
         name: 'Unbounded',

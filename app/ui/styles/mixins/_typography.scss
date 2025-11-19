@@ -9,6 +9,7 @@
     weight: $weight;
     style: normal;
   };
+  font-display: swap;
   @if $family == $font-body {
     font-feature-settings: "liga" on, "calt" on;
     font-variant-ligatures: contextual;
