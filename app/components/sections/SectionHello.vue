@@ -19,8 +19,8 @@ import { LinkBase, WindowSize } from '~/ui';
 
 
 const computedClasses = computed(() => ({
-  ['f-r']: ['Lg','Bg','Md'].includes(WindowSize.value),
-  ['f-c a-center']: ['Sm','Xs'].includes(WindowSize.value)
+  ['f-r']: ['xl','lg','md'].includes(WindowSize.value),
+  ['f-c a-center']: ['sm','xs'].includes(WindowSize.value)
 }))
 </script>
 

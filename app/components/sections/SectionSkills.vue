@@ -17,9 +17,9 @@ import { SvgIcon, WindowSize } from '~/ui';
 import { CardSkill } from '../cards';
 
 const computedClasses = computed(() => ({
-  ['gm-3-24']: ['Lg','Bg'].includes(WindowSize.value),
-  ['gm-2-24']: ['Md'].includes(WindowSize.value),
-  ['gm-1-24']: ['Sm', 'Xs'].includes(WindowSize.value)
+  ['gm-3-24']: ['xl','lg'].includes(WindowSize.value),
+  ['gm-2-24']: ['md'].includes(WindowSize.value),
+  ['gm-1-24']: ['sm', 'xs'].includes(WindowSize.value)
 }))
 
 const skills: {

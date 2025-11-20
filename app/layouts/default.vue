@@ -13,11 +13,11 @@ import { BlockHeader, BlockFooter } from '~/components';
 import { WindowSize } from '~/ui';
 
 const padding = computed(() => ({
-  ['p-x-240']: ['Lg'].includes(WindowSize.value),
-  ['p-x-208']: ['Bg'].includes(WindowSize.value),
-  ['p-x-128']: ['Md'].includes(WindowSize.value),
-  ['p-x-96']: ['Sm'].includes(WindowSize.value),
-  ['p-x-32']: ['Xs'].includes(WindowSize.value)
+  ['p-x-240']: ['xl'].includes(WindowSize.value),
+  ['p-x-208']: ['lg'].includes(WindowSize.value),
+  ['p-x-128']: ['md'].includes(WindowSize.value),
+  ['p-x-96']: ['sm'].includes(WindowSize.value),
+  ['p-x-32']: ['xs'].includes(WindowSize.value)
 }))
 
 </script>

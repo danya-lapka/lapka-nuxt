@@ -19,8 +19,8 @@ import { pages, links } from '~/data/static';
 import { LinkBase, LinkRouter, SvgIcon, WindowSize } from '~/ui';
 
 const height = computed(() => ({
-  ['ha-182']: ['Lg','Bg','Md','Sm'].includes(WindowSize.value),
-  ['ha-136']: ['Xs'].includes(WindowSize.value)
+  ['ha-182']: ['xl','lg','md','sm'].includes(WindowSize.value),
+  ['ha-136']: ['xs'].includes(WindowSize.value)
 }))
 </script>
 

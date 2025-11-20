@@ -25,6 +25,9 @@ export default defineNuxtConfig({
       }
     },
     assetsInclude: ['**/*.svg'],
+    plugins: [
+      await import('./app/plugins/lapka-css').then(m => m.default())
+    ]
   },
 
   app: {

@@ -15,9 +15,9 @@ import { SvgIcon, WindowSize } from '~/ui';
 import { CardLink } from '../cards';
 
 const computedClasses = computed(() => ({
-  ['gc-3']: ['Lg'].includes(WindowSize.value),
-  ['gc-2']: ['Bg'].includes(WindowSize.value),
-  ['gc-1']: ['Md','Sm','Xs'].includes(WindowSize.value)
+  ['gc-3']: ['xl'].includes(WindowSize.value),
+  ['gc-2']: ['lg'].includes(WindowSize.value),
+  ['gc-1']: ['md','sm','xs'].includes(WindowSize.value)
 }))
 
 </script>

@@ -1,13 +1,11 @@
 import { useWindowSize } from '@vueuse/core';
-import { computed } from 'vue';
 
 const { width } = useWindowSize();
-type Size = 'Lg'|'Bg'|'Md'|'Sm'|'Xs';
+type Size = 'xl'|'lg'|'md'|'sm'|'xs';
 export const WindowSize = computed<Size>(() => {
-  if (width.value < 768) return 'Xs';
-  if (width.value < 1024) return 'Sm';
-  if (width.value < 1440) return 'Md';
-  if (width.value < 1920) return 'Bg';
-  return 'Lg';
+  if (width.value < 768) return 'xs';
+  if (width.value < 1024) return 'sm';
+  if (width.value < 1440) return 'md';
+  if (width.value < 1920) return 'lg';
+  return 'xl';
 });
-
